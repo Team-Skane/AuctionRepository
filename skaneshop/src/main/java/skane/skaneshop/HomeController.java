@@ -10,7 +10,6 @@ import skane.skaneshop.board.infra.ItemRepository;
 import skane.skaneshop.login.application.ArgumentResolver.Login;
 import skane.skaneshop.login.dto.request.Member;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Slf4j
