@@ -44,7 +44,6 @@ public class AuctionControllerAPI {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/api/auction")
     public List<AuctionDto> getAuctions(){
-
        return auctionTestRepository.findAll().stream().
                 map(o->new AuctionDto(o))
                 .collect(Collectors.toList());
@@ -52,8 +51,6 @@ public class AuctionControllerAPI {
     }
 
     /**
-     *
-     *
      * @param aucReqDto
      * @return Parm으로 입찰정보를 받아와,  그 입찰정보를 저장하고 Return하는 메소드
      */
@@ -67,7 +64,6 @@ public class AuctionControllerAPI {
             bidInfo.setAuction(auctionTestRepository.findById(rq.getAuctionId()));
             bidInfo.setUserName(rq.getUserName());
             bidInfo.setBid_Price(rq.getBid_price());
-
             bidInfoTestRepository.save(bidInfo);
         }
 

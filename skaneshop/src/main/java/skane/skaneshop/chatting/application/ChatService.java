@@ -1,12 +1,17 @@
 package skane.skaneshop.chatting.application;
 
 
+import com.mysql.cj.Session;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import skane.skaneshop.SessionConst;
 import skane.skaneshop.chatting.dto.ChatRoom;
+import skane.skaneshop.login.dto.request.Member;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpSession;
+import javax.websocket.OnClose;
 import java.util.*;
 
 @Service

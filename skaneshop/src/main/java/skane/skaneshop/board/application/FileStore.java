@@ -24,7 +24,7 @@ public class FileStore {
         return fileDir + filename;
     }
 
-    //이미지파일들 담는용
+    //이미지파일들 담는용 Multipart -> UploadFile 형변환
     public List<UploadFile> storeFiles(List<MultipartFile> multipartFiles) throws IOException {
         List<UploadFile> storeFileResult=new ArrayList<>();
         for(MultipartFile multipartFile:multipartFiles){

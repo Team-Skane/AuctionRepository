@@ -59,7 +59,6 @@ public class AuctionService {
     /**
      * 1등 입찰 값을 불러오는 메소드, 2등 입찰 값을 불러오는 메소드
      */
-
     public int get_First_Bid(){
         List<BidInfo> all = bidInfoRepository.findAll();
 
@@ -68,7 +67,6 @@ public class AuctionService {
         }
 
         Collections.sort(all,(a,b)->b.getBid_Price()-a.getBid_Price());
-
         return all.get(0).getBid_Price();
     }
 
@@ -78,7 +76,6 @@ public class AuctionService {
         if(all.size()>2){
             return 0;
         }
-
         Collections.sort(all,(a,b)->b.getBid_Price()-a.getBid_Price());
 
         return all.get(1).getBid_Price();

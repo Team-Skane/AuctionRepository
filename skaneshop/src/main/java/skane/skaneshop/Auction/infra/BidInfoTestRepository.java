@@ -3,10 +3,7 @@ package skane.skaneshop.Auction.infra;
 import org.springframework.stereotype.Repository;
 import skane.skaneshop.domain.BidInfo;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class BidInfoTestRepository {
