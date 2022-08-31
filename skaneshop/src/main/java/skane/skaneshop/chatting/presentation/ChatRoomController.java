@@ -39,6 +39,7 @@ public class ChatRoomController {
     model.addAttribute("roomId", roomId);
     return "chat/roomdetail";
   }
+
   // 특정 채팅방 조회
   @GetMapping("room/{roomId}")
   @ResponseBody

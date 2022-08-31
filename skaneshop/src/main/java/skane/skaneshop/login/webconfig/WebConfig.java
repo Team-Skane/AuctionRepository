@@ -7,12 +7,11 @@ import skane.skaneshop.login.application.ArgumentResolver.LoginMemberArgumentRes
 import skane.skaneshop.login.application.interceptor.LogInterceptor;
 import skane.skaneshop.login.application.interceptor.LoginCheckInterceptor;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-
-
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
         resolvers.add(new LoginMemberArgumentResolver());
@@ -20,6 +19,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+
+
+
         registry.addInterceptor(new LogInterceptor())
                 .order(1)
                 .addPathPatterns("/**")
@@ -32,7 +34,7 @@ public class WebConfig implements WebMvcConfigurer {
                 .order(2)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/","/members/add","/login","/logout",
-                        "/css/**","/img/**","/*.ico","/error","/api/**");
+                        "/css/**","/img/**","/*.ico","/error","/api/**","/auction/**","/images/**");
     }
 
 }

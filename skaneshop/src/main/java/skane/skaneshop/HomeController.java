@@ -23,6 +23,10 @@ public class HomeController {
     @GetMapping("/")
     public String homeArgumentResolver(@Login Member loginMember, Model model) {
 
+        ///여기에 엄청 긴 Argument Resolver 코드가 추가가되야함
+        //
+
+
         if (loginMember==null){
             //메인화면 스킨만 적용해둠
             return "skone_home";

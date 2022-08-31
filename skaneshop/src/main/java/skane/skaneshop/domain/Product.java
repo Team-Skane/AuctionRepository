@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -37,7 +38,6 @@ public class Product {
   @Enumerated(EnumType.STRING)
   private Option option;
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "image_number")
-  private Image imageNumber;
+  @OneToMany(mappedBy = "product")
+  private List<Image> imageNumber;
 }

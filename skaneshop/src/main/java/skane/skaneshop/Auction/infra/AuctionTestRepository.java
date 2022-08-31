@@ -19,6 +19,7 @@ public class AuctionTestRepository {
         auction.setAuctionNumber(++sequence);
         //Time 도 그냥 생성될때 만들어버리자
         auction.setLeft_time(LocalDateTime.now().plusDays(7L));
+
         store.put(auction.getAuctionNumber(),auction);
         System.out.println("item = " + auction);
         return auction;
