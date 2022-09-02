@@ -22,6 +22,7 @@ public class AuctionDto {
     private List<AuctionRequestDto> bidInfo;
     private LocalDateTime left_time;
     private List<Image> images;
+    private String userName;
 
     public AuctionDto(Auction auction){
         this.auctionId =auction.getAuctionNumber();
@@ -32,10 +33,10 @@ public class AuctionDto {
         this.bidInfo = auction.getBidInfos().stream()
                 .map(o->new AuctionRequestDto(o.getAuction().getAuctionNumber(),o.getUserName(),o.getBid_Price()))
                 .collect(Collectors.toList());
-
         Collections.sort(bidInfo,(a,b)->b.getBid_price()-a.getBid_price());
         this.left_time=auction.getLeft_time();
         this.images = auction.getPostBordNumber().getProductNumber().getImageNumber();
+        this.userName = auction.getPostBordNumber().getProductNumber().getUserNumber().getName();
     }
 
 }
