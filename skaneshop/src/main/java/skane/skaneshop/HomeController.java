@@ -23,25 +23,21 @@ public class HomeController {
     @GetMapping("/")
     public String homeArgumentResolver(@Login Member loginMember, Model model) {
 
-        ///여기에 엄청 긴 Argument Resolver 코드가 추가가되야함
-        //
-
-
-        if (loginMember==null){
-            //메인화면 스킨만 적용해둠
-            return "skone_home";
-        }
-
         List<Item> items = itemRepository.findAll();
 
         for (Item item : items) {
             log.info(item.getItemName());
         }
 
-
         model.addAttribute("items",items);
+
+        if (loginMember==null){
+            //메인화면 스킨만 적용해둠
+            return "skone_home";
+        }
+
         model.addAttribute("member",loginMember);
-        //로그인 완료된 페이지가 따로 하나 필요할듯한데 아직 없어서 로그인 완료도 메인화면페이지로해둠.
+        //로그인 완료된 페이지가 따로 하나 필요할듯한데 아직 없어서 로그인 완료도 비로그인 메인화면페이지로해둠.
         return "skone_home";
     }
 }

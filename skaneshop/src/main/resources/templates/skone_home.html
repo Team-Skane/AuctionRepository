@@ -139,7 +139,7 @@
             <option value="category_3">카테고리3</option>
         </select>
         <button id="hotdeal_button" class="btn btn-info">핫딜</button>
-        <button id="auction_button" class="btn btn-info">경매</button>
+        <button id="auction_button" class="btn btn-info" th:onclick="|location.href='@{/auctions}'|">경매</button>
         <button id="sell_button" class="btn btn-info" th:onclick="|location.href='@{/test}'|">판매하기</button>
     </p>
 </div>
