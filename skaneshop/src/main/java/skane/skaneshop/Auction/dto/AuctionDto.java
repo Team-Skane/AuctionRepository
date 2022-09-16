@@ -18,6 +18,7 @@ public class AuctionDto {
     private Category category;
     private Option option;
     private String itemName;
+    //상품 설명
     private String postName;
     private List<AuctionRequestDto> bidInfo;
     private LocalDateTime left_time;

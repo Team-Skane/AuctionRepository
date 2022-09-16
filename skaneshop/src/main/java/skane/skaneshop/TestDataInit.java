@@ -3,6 +3,7 @@ package skane.skaneshop;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import skane.skaneshop.Auction.application.AuctionService;
+import skane.skaneshop.Auction.application.AuctionTimeThread;
 import skane.skaneshop.Auction.infra.AuctionTestRepository;
 import skane.skaneshop.Auction.infra.BidInfoRepository;
 import skane.skaneshop.Auction.infra.BidInfoTestRepository;
@@ -98,6 +99,8 @@ public class TestDataInit {
 
         auctionTestRepository.save(auction);
         auctionTestRepository.save(auction2);
+
+        AuctionTimeThread timeThread = new AuctionTimeThread(auction,auctionTestRepository);
 
 
         //예시 입찰금 각각 2개 생성
