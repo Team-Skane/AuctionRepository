@@ -134,7 +134,7 @@ public class ItemController {
         return  "item-view";
     }
 
-    //여러 이미지 파일 보이는 요청
+    //이미지 파일 보이는 요청
     @ResponseBody
     @GetMapping(value = "/images/{filename}",produces ="image/png")
     public Resource downloadImage(@PathVariable String filename) throws MalformedURLException {

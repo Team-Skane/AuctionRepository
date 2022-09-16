@@ -10,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Getter
-//잠깐 Setter 열어둠
+//잠깐 Setter 열어둠  JPA로할땐 닫고 Create메소드작성
 @Setter
 public class Auction {
 

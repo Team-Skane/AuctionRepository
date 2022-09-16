@@ -8,16 +8,23 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import skane.skaneshop.Auction.application.AuctionService;
 import skane.skaneshop.Auction.dto.AuctionDto;
+import skane.skaneshop.Auction.dto.AuctionRegDto;
 import skane.skaneshop.Auction.dto.BidForm;
+import skane.skaneshop.Auction.infra.AuctionRepository;
 import skane.skaneshop.Auction.infra.AuctionTestRepository;
 import skane.skaneshop.Auction.infra.BidInfoTestRepository;
-import skane.skaneshop.domain.Auction;
-import skane.skaneshop.domain.BidInfo;
+import skane.skaneshop.board.application.FileStore;
+import skane.skaneshop.board.dto.request.UploadFile;
+import skane.skaneshop.domain.*;
 import skane.skaneshop.login.application.ArgumentResolver.Login;
 import skane.skaneshop.login.dto.request.Member;
 import skane.skaneshop.login.infrastructure.MemberRepository;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -36,7 +43,7 @@ public class AuctionController {
     private final MemberRepository memberRepository;
     private final BidInfoTestRepository bidInfoTestRepository;
     private final AuctionService auctionService;
-
+    private final FileStore fileStore;
     /**
      * 경매 전체리스트
      * @return
@@ -64,6 +71,8 @@ public class AuctionController {
     public String auction_detail(@PathVariable Long id , @Login Member loginMember,
                                  @ModelAttribute BidForm bidForm, Model model){
         Auction auction = auctionTestRepository.findById(id);
+
+
 
         AuctionDto auctionDto = new AuctionDto(auction);
 
@@ -121,6 +130,23 @@ public class AuctionController {
         return "alert/alert";
     }
 
+    /**
+    옥션 상품 등록 페이지
+     */
+    @GetMapping("/auction/reg")
+    public String auction_reg_form(@ModelAttribute AuctionRegDto auctionRegDto){
 
+        return "auction/scone_auction_regist";
+    }
+
+    @PostMapping("/auction/reg")
+    @ResponseBody
+    public String auction_reg(@ModelAttribute AuctionRegDto auctionRegDto){
+
+        // 여기서 옥션 정보 저장하는 로직 필요
+
+
+        return "포스팅 성공";
+    }
 
 }
